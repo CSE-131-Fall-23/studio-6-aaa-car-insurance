@@ -12,11 +12,20 @@ public class RecursiveMethods {
 	 *         ...)
 	 */
 	public static double geometricSum(int n) {
+	
 		
-			// FIXME compute the geometric sum for the first n terms recursively
+		double ans = 0;
+
+		
+		if(n == 0) {
 			return 0;
+		}
+	  
+		return  1/Math.pow(2,n) + geometricSum(n-1);
 		
 	}
+
+
 
 	/**
 	 * This method uses recursion to compute the greatest common divisor
@@ -42,11 +51,27 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
-		
-			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
+		return Reversed(array, 0, array.length-1);
 		
 	}
+			
+	public static int[] Reversed(int[] array, int i, int j) {
+		if(i<j) {
+			int temp = array[i];
+			array[i]= array[j];
+			array[j]= temp;
+			Reversed(array, ++i, --j);
+			
+			
+		}
+		return array;
+		
+	}
+		
+
+
+		   
+		 
 
 	/**
 	 * @param xCenter                       x-coordinate of the center of the circle
